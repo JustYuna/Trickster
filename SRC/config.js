@@ -10,8 +10,7 @@ module.exports = {
             NOT_ENOUGH_CANDY: "You do not have enough candy to perform this action!",
             MIN_CANDY_REQUIRED: "You need a minimum of {amount} {mainCurrency_name}!",
             MAX_CANDY_ALLOWED: "You can only put a maximum of {amount} {mainCurrency_name}!",
-
-            ACTION_COOLDOWN: "🕐 You are on cooldown for \`{command}\`. Please wait {remainingSeconds} second(s).",
+            ACTION_COOLDOWN: "1️⃣ You are on cooldown for `{command}`. Please wait {remainingSeconds} second(s).",
             ACTION_UNAVAILABLE: "This action is currently unavailable, please try later again.",
         },
         THEMES: {
@@ -23,22 +22,113 @@ module.exports = {
                     SECONDARY: { NAME: "Cookies", EMOJI: content.EMOJIS.Cookie },
                 },
                 COLORS: {
-                    MAIN: content.COLORS.orange,
-                    SECONDARY: content.COLORS.darkSlateGray
+                    MAIN: [250, 150, 0],
+                    SECONDARY: [50, 75, 100],
+                    ERROR: [250, 0, 0]
+                },
+                COMMANDS: {
+                    HUNTING: {
+                        MESSAGES: [
+                            "You tracked a spooky ghost and found **{amount} {mainCurrency_name}** {mainCurrency_emoji} hidden in its sheets!",
+                            "You braved the haunted woods and caught a shadow bat. You sold its wings for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+                            "You found a cursed scarecrow in the fields. It dropped **{amount} {mainCurrency_name}** {mainCurrency_emoji} while running away!"
+                        ]
+                    },
+                    WORK: {
+                        MESSAGES: [
+                            "You spent the day carving jack-o'-lanterns for the village. You earned **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+                            "You worked a shift at the local haunted house scaring tourists. They tipped you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+                            "You helped a local witch brew some potions. She paid you **{amount} {mainCurrency_name}** {mainCurrency_emoji} and a strange look."
+                        ]
+                    },
+                    MINING: {
+                        RESOURCES: [
+                            { MATERIAL: "Pumpkin Shards", WEIGHT: 45, WORTH: 20, AMOUNT: { MIN: 5, MAX: 20 } },
+                            { MATERIAL: "Grave Dirt", WEIGHT: 30, WORTH: 50, AMOUNT: { MIN: 4, MAX: 18 } },
+                            { MATERIAL: "Brimstone", WEIGHT: 15, WORTH: 120, AMOUNT: { MIN: 2, MAX: 8 } },
+                            { MATERIAL: "Cursed Gold", WEIGHT: 8, WORTH: 300, AMOUNT: { MIN: 1, MAX: 5 } },
+                            { MATERIAL: "Soul Fragment", WEIGHT: 2, WORTH: 1500, AMOUNT: { MIN: 1, MAX: 1 } }
+                        ]
+                    }
                 }
             },
+
+            WINTER: {
+                CURRENCY: {
+                    MAIN: { NAME: "Candy", EMOJI: content.EMOJIS.Candy },
+                    SECONDARY: { NAME: "Cookies", EMOJI: content.EMOJIS.Cookie },
+                },
+                COLORS: {
+                    MAIN: [0, 100, 200],
+                    SECONDARY: [50, 75, 100],
+                    ERROR: [250, 0, 0]
+                },
+                COMMANDS: {
+                    HUNTING: {
+                        MESSAGES: [
+                            "You hunted one of Santa's deer... you're on the naughty list but earned **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+                            "You spotted a rare Arctic Fox in the snow. You sold the photo for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+                            "You tracked a Yeti through the blizzard and found its stash of **{amount} {mainCurrency_name}** {mainCurrency_emoji}!"
+                        ]
+                    },
+                    WORK: {
+                        MESSAGES: [
+                            "You spent the morning shoveling snow for the neighbors. They paid you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+                            "You worked as an elf in the workshop wrapping gifts. You earned **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+                            "You sold hot cocoa at the local skating rink. You made **{amount} {mainCurrency_name}** {mainCurrency_emoji} in profit!"
+                        ]
+                    },
+                    MINING: {
+                        RESOURCES: [
+                            { MATERIAL: "Snow", WEIGHT: 45, WORTH: 15, AMOUNT: { MIN: 10, MAX: 30 } },
+                            { MATERIAL: "Permafrost Ice", WEIGHT: 30, WORTH: 45, AMOUNT: { MIN: 5, MAX: 20 } },
+                            { MATERIAL: "Frozen Coal", WEIGHT: 15, WORTH: 100, AMOUNT: { MIN: 3, MAX: 10 } },
+                            { MATERIAL: "Glacial Crystal", WEIGHT: 8, WORTH: 350, AMOUNT: { MIN: 1, MAX: 4 } },
+                            { MATERIAL: "Ancient Mammoth Tusk", WEIGHT: 2, WORTH: 2000, AMOUNT: { MIN: 1, MAX: 1 } }
+                        ]
+                    }
+                }
+            },
+
             DEFAULT: {
                 CURRENCY: {
                     MAIN: { NAME: "Coins", EMOJI: content.EMOJIS.Coin },
                     SECONDARY: { NAME: "Gems", EMOJI: content.EMOJIS.Gems },
                 },
                 COLORS: {
-                    MAIN: content.COLORS.cyan,
-                    SECONDARY: content.COLORS.pink
+                    MAIN: [0, 250, 250],
+                    SECONDARY: [250, 50, 160],
+                    ERROR: [250, 0, 0]
+                },
+                COMMANDS: {
+                    HUNTING: {
+                        MESSAGES: [
+                            "You went hunting in the woods and brought back a rabbit! You sold it for **{amount} {mainCurrency_name}** {mainCurrency_emoji}.",
+                            "You spent hours tracking a wild boar and finally took it down. Profit: **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+                            "You caught a rare pheasant in the meadow. A local chef bought it for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!"
+                        ]
+                    },
+                    WORK: {
+                        MESSAGES: [
+                            "You worked a double shift at the local burger joint. You earned **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+                            "You spent the day coding a new Discord bot feature. Your client paid you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+                            "You cleaned out your garage and sold some old junk for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!"
+                        ]
+                    },
+                    MINING: {
+                        RESOURCES: [
+                            { MATERIAL: "Stone", WEIGHT: 50, WORTH: 10, AMOUNT: { MIN: 10, MAX: 30 } },
+                            { MATERIAL: "Iron", WEIGHT: 25, WORTH: 40, AMOUNT: { MIN: 5, MAX: 15 } },
+                            { MATERIAL: "Gold", WEIGHT: 15, WORTH: 150, AMOUNT: { MIN: 2, MAX: 6 } },
+                            { MATERIAL: "Diamond", WEIGHT: 8, WORTH: 600, AMOUNT: { MIN: 1, MAX: 3 } },
+                            { MATERIAL: "Netherite", WEIGHT: 2, WORTH: 2500, AMOUNT: { MIN: 1, MAX: 1 } }
+                        ]
+                    }
                 }
             }
         }
     },
+
     ECONOMY: {
         ROB: {
             REQUIREMENTS: {
@@ -161,17 +251,37 @@ module.exports = {
     
     FUN: {
         BONK: {
-            "150": "https://tenor.com/view/bonk-meme-dog-gif-9935778472248450901",
-            "100": "https://tenor.com/view/bonk-gif-20931372",
-            "75": "https://tenor.com/view/chainsawman-anime-slap-gif-26953570",
-            "50": "https://tenor.com/view/lion-king-yeet-gif-13195565629610357612",
-            "25": "https://tenor.com/view/bonk-pramod-bonk-gif-26084438",
-            "0": "https://tenor.com/view/chikku-neesan-girl-hit-wall-stfu-anime-girl-smack-gif-17078255",
+            GIFS: [
+                "https://tenor.com/view/bonk-meme-dog-gif-9935778472248450901",
+                "https://tenor.com/view/bonk-gif-20931372",
+                "https://tenor.com/view/chainsawman-anime-slap-gif-26953570",
+                "https://tenor.com/view/lion-king-yeet-gif-13195565629610357612",
+                "https://tenor.com/view/bonk-pramod-bonk-gif-26084438",
+                "https://tenor.com/view/chikku-neesan-girl-hit-wall-stfu-anime-girl-smack-gif-17078255",
+            ],
+            RESPONSES: [
+                "🔨 {bonker} [bonked]({gif}) {bonkee} into the next century!",
+                "🌌 {bonker} [bonked]({gif}) {bonkee} so hard they saw stars.",
+                "🏏 A wild {bonker} appeared and [bonked]({gif}) {bonkee}!",
+                "🌕 {bonker} [bonked]({gif}) {bonkee} all the way to the moon."
+            ]
         },
+
+        HUG: {
+            GIFS: [
+                "https://tenor.com/view/hug-anime-comfy-cute-gif-5299348585618231224",
+                "https://tenor.com/view/alice-vt-gif-25825873",
+                "https://tenor.com/view/chikako-hugging-otohime-for-the-first-and-she-confused-gif-313471048803276179",
+                "https://tenor.com/view/yukon-child-form-embracing-ulquiorra-gif-15599442819011505520",
+                "https://tenor.com/view/hugtrip-gif-2490966530865073004"
+            ]
+        },
+
         SHIP: {
             MESSAGE: "{emoji} The love compatibility between **{name1}** and **{name2}** is **{percentage}%**!"
         },
         TOWER: {
+
             BRICKS_PER_LAYER: 50,
             MESSAGE: "🧱 You have added 1 brick to the tower!\n**Layer:** {layer}\n**Total bricks:** {size}\n*[Each layer requires {needed} bricks]*"
         }
