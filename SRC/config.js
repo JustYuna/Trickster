@@ -6,11 +6,11 @@ const { EmbedBuilder } = require("discord.js");
 module.exports = {
     CORE: {
         MESSAGES: {
-            NOT_ENOUGH_CANDY: "You do not have enough candy to perform this action!",
-            MIN_CANDY_REQUIRED: "You need a minimum of {amount} {mainCurrency_name}!",
-            MAX_CANDY_ALLOWED: "You can only put a maximum of {amount} {mainCurrency_name}!",
-            ACTION_COOLDOWN: "1️⃣ You are on cooldown for `{command}`. Please wait {remainingSeconds} second(s).",
-            ACTION_UNAVAILABLE: "This action is currently unavailable, please try later again.",
+            NOT_ENOUGH_CURRENCY: "❌ You do not have enough **{mainCurrency_name}** {mainCurrency_emoji} to perform this action!",
+            MIN_CURRENCY_REQUIRED: "⚠️ You need a minimum of **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+            MAX_CURRENCY_ALLOWED: "🚫 You can only put a maximum of **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
+            ACTION_COOLDOWN: "⏳ You are on cooldown for `{command}鸣. Please wait **{remainingSeconds}** second(s).",
+            ACTION_UNAVAILABLE: "🛠️ This action is currently unavailable, please try again later.",
         },
 
         EMOJIS: {
@@ -33,7 +33,7 @@ module.exports = {
             CandyBasket: "<:CandyBasket:1411878280486846558>",
             Cookie: "<:Cookie:1417811796252819466>",
 
-            Coin: "<:Coin:>1489783746835120329",
+            Coin: "<:Coin:1489783746835120329>",
             Gems: "<:Gems:1417581211446018171>",
 
             Gambled: "<:Gambled:1418791109676630017>",
@@ -54,25 +54,21 @@ module.exports = {
                     MAIN: { NAME: "Candy", EMOJI: "{emoji_Candy}" },
                     SECONDARY: { NAME: "Cookies", EMOJI: "{emoji_Cookie}" },
                 },
-                COLORS: {
-                    MAIN: [250, 150, 0],
-                    SECONDARY: [50, 75, 100],
-                    ERROR: [250, 0, 0]
-                },
+                COLORS: { MAIN: [250, 150, 0], SECONDARY: [50, 75, 100], ERROR: [250, 0, 0] },
                 COMMANDS: {
                     HUNTING: {
-                        MESSAGES: [
-                            "You tracked a spooky ghost and found **{amount} {mainCurrency_name}** {mainCurrency_emoji} hidden in its sheets!",
-                            "You braved the haunted woods and caught a shadow bat. You sold its wings for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You found a cursed scarecrow in the fields. It dropped **{amount} {mainCurrency_name}** {mainCurrency_emoji} while running away!",
-                            "A vampire dropped its cape while fleeing from your garlic. You pawned it for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You cornered a zombie in the graveyard and found **{amount} {mainCurrency_name}** {mainCurrency_emoji} stuffed in its pockets!",
-                            "You outran a headless horseman and picked up **{amount} {mainCurrency_name}** {mainCurrency_emoji} he dropped near the bridge!",
-                            "You harvested some glowing mushrooms guarded by a werewolf. They sold for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "A friendly banshee screamed a location of buried treasure. You dug up **{amount} {mainCurrency_name}** {mainCurrency_emoji}!"
+                        ACTION_MESSAGE: "🏹 You stalked through the fog of the cursed woods...\nYou tracked down **{amount}x {material}** and sold the spoils for: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
+                        RESOURCES: [
+                            { MATERIAL: "Shadow Bat", WEIGHT: 40, WORTH: 25, AMOUNT: { MIN: 3, MAX: 8 } },
+                            { MATERIAL: "Spooky Ghost", WEIGHT: 25, WORTH: 60, AMOUNT: { MIN: 2, MAX: 5 } },
+                            { MATERIAL: "Cursed Scarecrow", WEIGHT: 15, WORTH: 120, AMOUNT: { MIN: 1, MAX: 4 } },
+                            { MATERIAL: "Headless Horseman", WEIGHT: 10, WORTH: 450, AMOUNT: { MIN: 1, MAX: 2 } },
+                            { MATERIAL: "Ancient Vampire", WEIGHT: 8, WORTH: 900, AMOUNT: { MIN: 1, MAX: 1 } },
+                            { MATERIAL: "Werewolf Alpha", WEIGHT: 2, WORTH: 2500, AMOUNT: { MIN: 1, MAX: 1 } }
                         ]
                     },
                     MINING: {
+                        ACTION_MESSAGE: "⛏️ You swing your pickaxe into a cracked tombstone...\nYou unearthed **{amount}x {material}** and sold it for: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
                         RESOURCES: [
                             { MATERIAL: "Pumpkin Shards", WEIGHT: 45, WORTH: 20, AMOUNT: { MIN: 5, MAX: 20 } },
                             { MATERIAL: "Grave Dirt", WEIGHT: 30, WORTH: 50, AMOUNT: { MIN: 4, MAX: 18 } },
@@ -82,27 +78,34 @@ module.exports = {
                         ]
                     },
                     FISHING: {
+                        ACTION_MESSAGE: "🎣 You cast your line into the murky swamp waters...\nYou caught **{amount}x {material}** and sold it for: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
                         RESOURCES: [
                             { MATERIAL: "Soggy Bandages", WEIGHT: 40, WORTH: 25, AMOUNT: { MIN: 3, MAX: 10 } },
                             { MATERIAL: "Eerie Eel", WEIGHT: 25, WORTH: 55, AMOUNT: { MIN: 2, MAX: 6 } },
                             { MATERIAL: "Bonefish", WEIGHT: 15, WORTH: 110, AMOUNT: { MIN: 1, MAX: 4 } },
                             { MATERIAL: "Ghost Carp", WEIGHT: 10, WORTH: 400, AMOUNT: { MIN: 1, MAX: 2 } },
-                            { MATERIAL: "Drowned King's Crown", WEIGHT: 5, WORTH: 1200, AMOUNT: { MIN: 1, MAX: 1 } },
-                            { MATERIAL: "Swamp Thing's Eye", WEIGHT: 3, WORTH: 2500, AMOUNT: { MIN: 1, MAX: 1 } },
                             { MATERIAL: "Cursed Anchor", WEIGHT: 2, WORTH: 5000, AMOUNT: { MIN: 1, MAX: 1 } }
                         ]
                     },
                     COOKING: {
-                        MESSAGES: [
-                            "You baked a batch of **Spooky Eyeball Cupcakes**. The local monsters paid you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You stirred a giant cauldron of **Witch's Brew**. It tasted like swamp water, but you sold it for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You cooked up some **Ghostly Garlic Pasta**. It kept the vampires away and earned you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You decorated a **Graveyard Cake** with chocolate dirt. A skeleton bought it for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You fermented some **Spider-Cider**. A group of goblins loved it and tipped you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You grilled **Hellfire Peppers**. The spice was legendary, netting you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You served **Mummy-Wrapped Sausages** at the party. The guests paid **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You whipped up **Poison Ivy Salad** (the safe kind). A forest spirit gave you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!"
+                        ACTION_MESSAGE: "🍳 You stirred a bubbling cauldron over a green flame...\nYou prepared **{amount}x {material}** and sold them to hungry ghouls for: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
+                        RESOURCES: [
+                            { MATERIAL: "Eyeball Cupcakes", WEIGHT: 45, WORTH: 30, AMOUNT: { MIN: 4, MAX: 12 } },
+                            { MATERIAL: "Witch's Brew", WEIGHT: 30, WORTH: 70, AMOUNT: { MIN: 2, MAX: 8 } },
+                            { MATERIAL: "Ghostly Pasta", WEIGHT: 15, WORTH: 150, AMOUNT: { MIN: 1, MAX: 5 } },
+                            { MATERIAL: "Spider-Cider", WEIGHT: 8, WORTH: 500, AMOUNT: { MIN: 1, MAX: 2 } },
+                            { MATERIAL: "Hellfire Peppers", WEIGHT: 2, WORTH: 2000, AMOUNT: { MIN: 1, MAX: 1 } }
                         ]
+                    },
+                    WALLET: {
+                        TITLE: "🎒 {username}'s Candy Basket",
+                        THUMBNAIL: "{emoji_CandyBasket}", // If you have this emoji
+                        FIELDS: {
+                            CURRENCY: "💰 Currencies",
+                            STATISTICS: "📊 Statistics",
+                            STREAK: "🌟 Daily Streak",
+                            INVENTORY: "📦 Collected Items"
+                        }
                     },
                 }
             },
@@ -112,25 +115,21 @@ module.exports = {
                     MAIN: { NAME: "Candy", EMOJI: "{emoji_Candy}" },
                     SECONDARY: { NAME: "Cookies", EMOJI: "{emoji_Cookie}" },
                 },
-                COLORS: {
-                    MAIN: [0, 100, 200],
-                    SECONDARY: [50, 75, 100],
-                    ERROR: [250, 0, 0]
-                },
+                COLORS: { MAIN: [0, 100, 200], SECONDARY: [50, 75, 100], ERROR: [250, 0, 0] },
                 COMMANDS: {
                     HUNTING: {
-                        MESSAGES: [
-                            "You hunted one of Santa's deer... you're on the naughty list but earned **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You spotted a rare Arctic Fox in the snow. You sold the photo for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You tracked a Yeti through the blizzard and found its stash of **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You found a lost Penguin and returned it to its colony. They rewarded you with **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You caught a Winter Owl delivering mail. It dropped a pouch containing **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You fended off a Snow Golem and gathered the **{amount} {mainCurrency_name}** {mainCurrency_emoji} it was protecting!",
-                            "You followed a trail of peppermint and found **{amount} {mainCurrency_name}** {mainCurrency_emoji} under a frozen pine!",
-                            "You won a snowball fight against an elf. Your prize was **{amount} {mainCurrency_name}** {mainCurrency_emoji}!"
+                        ACTION_MESSAGE: "🏹 You trekked through the deep blizzard snow...\nYou tracked down **{amount}x {material}** and sold the spoils for: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
+                        RESOURCES: [
+                            { MATERIAL: "Arctic Fox", WEIGHT: 40, WORTH: 30, AMOUNT: { MIN: 3, MAX: 7 } },
+                            { MATERIAL: "Winter Owl", WEIGHT: 25, WORTH: 65, AMOUNT: { MIN: 2, MAX: 6 } },
+                            { MATERIAL: "Snow Golem Core", WEIGHT: 15, WORTH: 140, AMOUNT: { MIN: 1, MAX: 4 } },
+                            { MATERIAL: "Yeti Fur", WEIGHT: 10, WORTH: 500, AMOUNT: { MIN: 1, MAX: 2 } },
+                            { MATERIAL: "Reindeer Antler", WEIGHT: 8, WORTH: 1000, AMOUNT: { MIN: 1, MAX: 1 } },
+                            { MATERIAL: "Ice Dragon Scale", WEIGHT: 2, WORTH: 3000, AMOUNT: { MIN: 1, MAX: 1 } }
                         ]
                     },
                     MINING: {
+                        ACTION_MESSAGE: "⛏️ You crack through the permafrost with your pickaxe...\nYou unearthed **{amount}x {material}** and sold it for: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
                         RESOURCES: [
                             { MATERIAL: "Snow", WEIGHT: 45, WORTH: 15, AMOUNT: { MIN: 10, MAX: 30 } },
                             { MATERIAL: "Permafrost Ice", WEIGHT: 30, WORTH: 45, AMOUNT: { MIN: 5, MAX: 20 } },
@@ -140,27 +139,34 @@ module.exports = {
                         ]
                     },
                     FISHING: {
+                        ACTION_MESSAGE: "🎣 You drop your line through a hole in the ice...\nYou caught **{amount}x {material}** and sold it for: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
                         RESOURCES: [
                             { MATERIAL: "Ice Cube", WEIGHT: 40, WORTH: 10, AMOUNT: { MIN: 10, MAX: 25 } },
                             { MATERIAL: "Frozen Sardine", WEIGHT: 25, WORTH: 50, AMOUNT: { MIN: 3, MAX: 12 } },
                             { MATERIAL: "Arctic Char", WEIGHT: 15, WORTH: 150, AMOUNT: { MIN: 2, MAX: 5 } },
                             { MATERIAL: "Frost-Scale Trout", WEIGHT: 10, WORTH: 500, AMOUNT: { MIN: 1, MAX: 2 } },
-                            { MATERIAL: "Star-Nosed Mole (Wet)", WEIGHT: 5, WORTH: 1000, AMOUNT: { MIN: 1, MAX: 1 } },
-                            { MATERIAL: "Golden Snowflake", WEIGHT: 3, WORTH: 3000, AMOUNT: { MIN: 1, MAX: 1 } },
                             { MATERIAL: "The Polar Star", WEIGHT: 2, WORTH: 6000, AMOUNT: { MIN: 1, MAX: 1 } }
                         ]
                     },
                     COOKING: {
-                        MESSAGES: [
-                            "You spent the afternoon baking **Gingerbread Men**. They didn't run away, and you sold them for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You prepared a massive pot of **Peppermint Hot Cocoa**. The hikers paid you **{amount} {mainCurrency_name}** {mainCurrency_emoji} to warm up!",
-                            "You roasted a **Honey-Glazed Ham** for the village feast. You were rewarded with **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You whipped up some **Cinnamon Sugar Churros**. The snowy festival crowd gave you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You boiled a pot of **Snow-Melt Soup**. Surprisingly tasty! You earned **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You crafted a **Fruitcake** so hard it could be a weapon. A collector bought it for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You made **Maple Syrup Taffy** on the snow. The kids gave you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You served **Roasted Chestnuts** by an open fire. You earned **{amount} {mainCurrency_name}** {mainCurrency_emoji}!"
+                        ACTION_MESSAGE: "🍳 You warmed up the kitchen with a roaring fire...\nYou prepared **{amount}x {material}** and sold them to cold hikers for: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
+                        RESOURCES: [
+                            { MATERIAL: "Peppermint Cocoa", WEIGHT: 45, WORTH: 35, AMOUNT: { MIN: 5, MAX: 15 } },
+                            { MATERIAL: "Gingerbread Men", WEIGHT: 30, WORTH: 80, AMOUNT: { MIN: 3, MAX: 10 } },
+                            { MATERIAL: "Honey-Glazed Ham", WEIGHT: 15, WORTH: 180, AMOUNT: { MIN: 1, MAX: 5 } },
+                            { MATERIAL: "Cinnamon Churros", WEIGHT: 8, WORTH: 450, AMOUNT: { MIN: 1, MAX: 2 } },
+                            { MATERIAL: "Roasted Chestnuts", WEIGHT: 2, WORTH: 1800, AMOUNT: { MIN: 1, MAX: 1 } }
                         ]
+                    },
+                    WALLET: {
+                        TITLE: "❄️ {username}'s Winter Stash",
+                        THUMBNAIL: "{emoji_Candy}", // Or a snowflake emoji if you have one
+                        FIELDS: {
+                            CURRENCY: "🧊 Frozen Assets",
+                            STATISTICS: "📊 Winter Records",
+                            STREAK: "🔥 Warmth Streak",
+                            INVENTORY: "🎒 Sled Bag"
+                        }
                     },
                 }
             },
@@ -170,25 +176,21 @@ module.exports = {
                     MAIN: { NAME: "Coins", EMOJI: "{emoji_Coin}" },
                     SECONDARY: { NAME: "Gems", EMOJI: "{emoji_Gems}" },
                 },
-                COLORS: {
-                    MAIN: [0, 250, 250],
-                    SECONDARY: [250, 50, 160],
-                    ERROR: [250, 0, 0]
-                },
+                COLORS: { MAIN: [0, 250, 250], SECONDARY: [250, 50, 160], ERROR: [250, 0, 0] },
                 COMMANDS: {
                     HUNTING: {
-                        MESSAGES: [
-                            "You went hunting in the woods and brought back a rabbit! You sold it for **{amount} {mainCurrency_name}** {mainCurrency_emoji}.",
-                            "You spent hours tracking a wild boar and finally took it down. Profit: **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You caught a rare pheasant in the meadow. A local chef bought it for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You tracked a majestic stag through the valley. You earned **{amount} {mainCurrency_name}** {mainCurrency_emoji} for the trophy!",
-                            "You successfully trapped a group of quails. The market paid you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You found a rare silver fox. After releasing it safely, you found a pouch of **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You hunted down some pesky coyotes for a farmer. He paid you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You spotted a golden eagle and followed it to a hidden nest of **{amount} {mainCurrency_name}** {mainCurrency_emoji}!"
+                        ACTION_MESSAGE: "🏹 You ventured into the wild meadows...\nYou tracked down **{amount}x {material}** and sold the spoils for: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
+                        RESOURCES: [
+                            { MATERIAL: "Rabbit", WEIGHT: 45, WORTH: 20, AMOUNT: { MIN: 5, MAX: 15 } },
+                            { MATERIAL: "Pheasant", WEIGHT: 25, WORTH: 50, AMOUNT: { MIN: 3, MAX: 10 } },
+                            { MATERIAL: "Wild Boar", WEIGHT: 15, WORTH: 120, AMOUNT: { MIN: 2, MAX: 6 } },
+                            { MATERIAL: "Majestic Stag", WEIGHT: 10, WORTH: 400, AMOUNT: { MIN: 1, MAX: 3 } },
+                            { MATERIAL: "Golden Eagle", WEIGHT: 4, WORTH: 1200, AMOUNT: { MIN: 1, MAX: 1 } },
+                            { MATERIAL: "Ancient Silver Fox", WEIGHT: 1, WORTH: 5000, AMOUNT: { MIN: 1, MAX: 1 } }
                         ]
                     },
                     MINING: {
+                        ACTION_MESSAGE: "⛏️ You swing your pickaxe deep into the cavern walls...\nYou unearthed **{amount}x {material}** and sold it for: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
                         RESOURCES: [
                             { MATERIAL: "Stone", WEIGHT: 50, WORTH: 10, AMOUNT: { MIN: 10, MAX: 30 } },
                             { MATERIAL: "Iron", WEIGHT: 25, WORTH: 40, AMOUNT: { MIN: 5, MAX: 15 } },
@@ -198,32 +200,39 @@ module.exports = {
                         ]
                     },
                     FISHING: {
+                        ACTION_MESSAGE: "🎣 You cast your line into the blue water...\nYou caught **{amount}x {material}** and sold it for: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
                         RESOURCES: [
                             { MATERIAL: "Old Boot", WEIGHT: 40, WORTH: 5, AMOUNT: { MIN: 1, MAX: 2 } },
                             { MATERIAL: "Cod", WEIGHT: 30, WORTH: 35, AMOUNT: { MIN: 5, MAX: 15 } },
                             { MATERIAL: "Salmon", WEIGHT: 15, WORTH: 80, AMOUNT: { MIN: 3, MAX: 10 } },
-                            { MATERIAL: "Pufferfish", WEIGHT: 8, WORTH: 250, AMOUNT: { MIN: 1, MAX: 4 } },
-                            { MATERIAL: "Tropical Fish", WEIGHT: 4, WORTH: 750, AMOUNT: { MIN: 1, MAX: 2 } },
-                            { MATERIAL: "Enchanted Book", WEIGHT: 2, WORTH: 2000, AMOUNT: { MIN: 1, MAX: 1 } },
-                            { MATERIAL: "Neptune's Trident", WEIGHT: 1, WORTH: 10000, AMOUNT: { MIN: 1, MAX: 1 } }
+                            { MATERIAL: "Tropical Fish", WEIGHT: 10, WORTH: 500, AMOUNT: { MIN: 1, MAX: 2 } },
+                            { MATERIAL: "Neptune's Trident", WEIGHT: 5, WORTH: 10000, AMOUNT: { MIN: 1, MAX: 1 } }
                         ]
                     },
                     COOKING: {
-                        MESSAGES: [
-                            "You attempted to bake some **Banana Bread** but ended up burning the kitchen. You still earned **{amount} {mainCurrency_name}** {mainCurrency_emoji} somehow...",
-                            "You worked the line at a 5-star restaurant and served a perfect **Filet Mignon**. You earned **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You flipped **Blueberry Pancakes** at a busy breakfast diner. Your tips totaled **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You entered a local **Chili Cook-off** and took home second place! Your prize was **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You baked a fresh loaf of **Sourdough Bread**. The local bakery bought it for **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You prepared a large tray of **Lasagna** for a catering event. You earned **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You made gourmet **Street Tacos**. The lunch rush gave you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You whipped up a signature **Chocolate Soufflé**. A food critic tipped you **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-                            "You grilled some **Zesty Lemon Chicken**. Your friends paid you **{amount} {mainCurrency_name}** {mainCurrency_emoji} for the meal!"
+                        ACTION_MESSAGE: "🍳 You worked a shift at the local bistro...\nYou prepared **{amount}x {material}** and earned: **{totalValue} {mainCurrency_name}** {mainCurrency_emoji}",
+                        RESOURCES: [
+                            { MATERIAL: "Blueberry Pancakes", WEIGHT: 45, WORTH: 25, AMOUNT: { MIN: 5, MAX: 20 } },
+                            { MATERIAL: "Sourdough Bread", WEIGHT: 30, WORTH: 60, AMOUNT: { MIN: 3, MAX: 12 } },
+                            { MATERIAL: "Zesty Chicken", WEIGHT: 15, WORTH: 130, AMOUNT: { MIN: 2, MAX: 8 } },
+                            { MATERIAL: "Filet Mignon", WEIGHT: 8, WORTH: 400, AMOUNT: { MIN: 1, MAX: 3 } },
+                            { MATERIAL: "Chocolate Soufflé", WEIGHT: 2, WORTH: 1500, AMOUNT: { MIN: 1, MAX: 1 } }
                         ]
                     },
+
+                    WALLET: {
+                        TITLE: "👛 {username}'s Wallet",
+                        THUMBNAIL: "{emoji_Coin}",
+                        FIELDS: {
+                            CURRENCY: "💵 Balance",
+                            STATISTICS: "📈 Stats",
+                            STREAK: "📅 Daily Login",
+                            INVENTORY: "🎒 Inventory"
+                        }
+                    }
                 }
             }
-        }
+        },
     },
 
     ECONOMY: {
@@ -250,7 +259,7 @@ module.exports = {
             },
             MESSAGES: {
                 ALREADY_CLAIMED: `{emoji_UI_Cross} You already used \`/daily\` today!`,
-                RECIEVED: "{mainCurrency_emoji} You received **{currency_emoji} {Math.floor(reward)}**",
+                RECIEVED: "{mainCurrency_emoji} You received **{reward} {mainCurrency_name}'s**",
             }
         },
 
@@ -269,13 +278,6 @@ module.exports = {
                 SUCCESS: "Successfully gifted {amount} {mainCurrency_name} to {username}!",
                 TOO_RICH: "You cannot gift candy to {username} because they already have too much!"
             }
-        },
-
-        WORK_GENERAL: {
-            COMMON: { MIN: 10, MAX: 50, CHANCE: 50 },
-            UNCOMMON: { MIN: 50, MAX: 100, CHANCE: 25 },
-            RARE: { MIN: 100, MAX: 150, CHANCE: 5 },
-            EPIC: { MIN: 150, MAX: 250, CHANCE: 1 },
         },
 
         ROCK_PAPER_SCISSORS: {
