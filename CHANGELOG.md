@@ -4,11 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [1.0.7] - Current
-### Overhauled
-- Changed from pure candy bot to a global bot with **Themes**.
-- Security + Code patches.
-- Reworked economy and reset old data.
+## [1.0.7] - The Theme Engine Update
+> **Note:** This update includes a full economy reset to support the new global theme system.
+
+### 🎭 Major Overhaul
+- **Theme Engine:** Migrated from a seasonal "Candy" focus to a Global Bot architecture. The bot now supports dynamic themes (Halloween, Winter, Default).
+- **Command Migration:** - Retired: `/trick-or-treat`, `/sugar-rush`
+  - New: `/fish`, `/mine`, `/cook`, `/hunt`
+- **Wallet System:** Updated `/basket` to `/wallet` to better reflect the new multi-currency support.
+
+### 🛠 Tech Yap (Internal)
+- **Security:** Critical code patches and data sanitization.
+- **Improved Logic:** Reworked bot balance and configuration handling. [View Source](https://github.com/JustSnuv/Trickster/blob/main/SRC/config.js)
+- **Performance:** Interaction handling is now significantly faster.
+- **Smarter Captcha:** Integrated a new "Heat System" to detect automated botting more accurately while reducing friction for real users.
 
 ## [1.0.6]
 ### Reworked
