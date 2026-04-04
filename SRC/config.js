@@ -1,5 +1,4 @@
 require("dotenv").config();
-const content = require("./content")
 const { EmbedBuilder } = require("discord.js");
 
 // const RAW_URL = process.env.CONFIG_RAW_URL?.trim();
@@ -52,8 +51,8 @@ module.exports = {
 
             HALLOWEEN: {
                 CURRENCY: {
-                    MAIN: { NAME: "Candy", EMOJI: content.EMOJIS.Candy },
-                    SECONDARY: { NAME: "Cookies", EMOJI: content.EMOJIS.Cookie },
+                    MAIN: { NAME: "Candy", EMOJI: "{emoji_Candy}" },
+                    SECONDARY: { NAME: "Cookies", EMOJI: "{emoji_Cookie}" },
                 },
                 COLORS: {
                     MAIN: [250, 150, 0],
@@ -110,8 +109,8 @@ module.exports = {
 
             WINTER: {
                 CURRENCY: {
-                    MAIN: { NAME: "Candy", EMOJI: content.EMOJIS.Candy },
-                    SECONDARY: { NAME: "Cookies", EMOJI: content.EMOJIS.Cookie },
+                    MAIN: { NAME: "Candy", EMOJI: "{emoji_Candy}" },
+                    SECONDARY: { NAME: "Cookies", EMOJI: "{emoji_Cookie}" },
                 },
                 COLORS: {
                     MAIN: [0, 100, 200],
@@ -168,8 +167,8 @@ module.exports = {
 
             DEFAULT: {
                 CURRENCY: {
-                    MAIN: { NAME: "Coins", EMOJI: content.EMOJIS.Coin },
-                    SECONDARY: { NAME: "Gems", EMOJI: content.EMOJIS.Gems },
+                    MAIN: { NAME: "Coins", EMOJI: "{emoji_Coin}" },
+                    SECONDARY: { NAME: "Gems", EMOJI: "{emoji_Gems}" },
                 },
                 COLORS: {
                     MAIN: [0, 250, 250],
@@ -250,7 +249,7 @@ module.exports = {
                 WEEKEND_MULTIPLIER: 1.5
             },
             MESSAGES: {
-                ALREADY_CLAIMED: `${content.EMOJIS.UI_Cross} You already used \`/daily\` today!`,
+                ALREADY_CLAIMED: `{emoji_UI_Cross} You already used \`/daily\` today!`,
                 RECIEVED: "{mainCurrency_emoji} You received **{currency_emoji} {Math.floor(reward)}**",
             }
         },
@@ -258,6 +257,7 @@ module.exports = {
         GIFT: {
             MIN: 50,
             MAX: 5_000,
+            MAX_RECIEVER: 100_000,
             EXCLUDE: [
                 // Admins
                 "656588010195910686", // Snuv
@@ -266,7 +266,8 @@ module.exports = {
             MESSAGES: {
                 EXCLUDED: "You cannot gift candy to this user.",
                 TO_BOT: "You cannot gift candy to bots.",
-                SUCCESS: "Successfully gifted {amount} {mainCurrency_name} to {username}!"
+                SUCCESS: "Successfully gifted {amount} {mainCurrency_name} to {username}!",
+                TOO_RICH: "You cannot gift candy to {username} because they already have too much!"
             }
         },
 
