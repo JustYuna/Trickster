@@ -244,7 +244,71 @@ module.exports = {
     },
 
     ECONOMY: {
-        ROB: {
+
+        // -------------------
+        // BASE SECTION
+        // -------------------
+
+        BANK: {
+            UPGRADES: {
+                [0]: { NEXT_COST: 15_000, CAPACITY: 7_500 },
+                [1]: { NEXT_COST: 45_000, CAPACITY: 22_500 },
+                [2]: { NEXT_COST: 100_000, CAPACITY: 50_000 },
+                [3]: { NEXT_COST: 250_000, CAPACITY: 125_000 },
+                [4]: { NEXT_COST: 99_000_000_000, CAPACITY: 0 } // Cap max
+            },
+            MESSAGES: {
+                BANK_FULL: "{emoji_UI_Cross} Your bank is full, try upgrading it!",
+                UPGRADE_CANT_AFFORD: "{emoji_UI_Cross} You cannot afford this upgrade!\nYou are missing **{amount} {mainCurrency_name} {mainCurrency_emoji}**\n# *Only {mainCurrency_name} outside the bank can be used to upgrade.*",
+                DEPOSIT: "{emoji_UI_Plus} You deposited {amount} {mainCurrency_emoji} into the bank!\n- Deposited: **{newAmount} {mainCurrency_emoji}**",
+                WITHDRAW: "{emoji_UI_Plus} You withdrawed {amount} {mainCurrency_emoji} into the bank!\n- Deposited: **{newAmount} {mainCurrency_emoji}**",
+                VIEW: {
+                    title: "🏦 Bank",
+                    fields: [
+                        {
+                            name: "Level",
+                            value: "**{level}**",
+                            inline: true
+                        },
+                        {
+                            name: "Capacity",
+                            value: "**{capacity}**",
+                            inline: true
+                        },
+                        {
+                            name: "Next Upgrade",
+                            value: "{next}",
+                            inline: false
+                        }
+                    ]
+                },
+
+                UPGRADE_SUCCESS: {
+                    title: "🏦 Upgrade Successful",
+                    description: "{emoji_UI_Plus} Your bank has been upgraded!",
+                    fields: [
+                        {
+                            name: "New Level",
+                            value: "**{level}**",
+                            inline: true
+                        },
+                        {
+                            name: "Capacity",
+                            value: "**{capacity}**",
+                            inline: true
+                        }
+                    ],
+                    footer: "Keep grinding 💰"
+                }
+            }
+        },
+
+        // -------------------
+        // CRIME SECTION
+        // -------------------
+
+
+        HEIST: {
             REQUIREMENTS: {
                 kids: 250,
                 candy_shop: 750,
@@ -256,6 +320,10 @@ module.exports = {
                 easy: { Reward: 0.5, Percentage: 50 },
                 medium: { Reward: 1, Percentage: 65 },
                 hard: { Reward: 1.5, Percentage: 80 },
+            },
+            MESSAGES: {
+                SUCCESS: "{emoji_UI_Plus} Robbing succeeded!\nYou earned **{amount} {mainCurrency_name} {mainCurrency_emoji}**\n**Target:** {target}, **Difficulty:** {difficulty}",
+                FAILED: "{emoji_UI_Cross} Robbing failed...\nyou have been fined **{amount} {mainCurrency_name} {mainCurrency_emoji}**\n**Target:** {target}, **Difficulty:** {difficulty}",
             }
         },
 
@@ -267,7 +335,7 @@ module.exports = {
             },
             MESSAGES: {
                 ALREADY_CLAIMED: `{emoji_UI_Cross} You already used \`/daily\` today!`,
-                RECIEVED: "{mainCurrency_emoji} You received **{reward} {mainCurrency_name}'s**",
+                RECIEVED: "{mainCurrency_emoji} You received **{reward} {mainCurrency_name}**",
             }
         },
 
@@ -291,23 +359,6 @@ module.exports = {
         // -------------------
         // GAMBLING SECTION
         // -------------------
-
-        RAFFLE: {
-            MIN_BET: 50,
-            MAX_BET: 50_000,
-            MAX_DIFFERENCE: 10_000, // Sets the max diffrence so you cannot bet 1 vs 50_000
-            RAFFLE_TIME: 600, // in seconds
-
-            MESSAGES: {
-                DIFFERENCE_TOO_HIGH: "⚠️ The difference for the bet is too high, you can only bet a diffrence of max 10,000!\n*Cooldown reset to 10sec's*",
-                NO_CODE: "⚠️ You need a code to join a raffle!\n*Cooldown reset to 10sec's*",
-                NO_RAFFLE_FOUND: "⚠️ No active raffle was found with that code, make you that you wrote it correct.\n*Cooldown reset to 10sec's*",
-                NO_AMOUNT: "⚠️ You need to input a amount to enter/create a raffle!\n*Cooldown reset to 10sec's*",
-
-                WINNER: "🎉 {winner} won the raffle!\nReward: **{amount} {mainCurrency_name}’s** {mainCurrency_emoji}",
-                INFO: "**Raffle:**\nThis command allows you to create a raffle to play against your friends!\n- Create a raffle using /raffle <create>\n- Join a raffle by using /raffle <join> <code>\n*Cooldown reset to 10sec's*",
-            },
-        },
 
         ROCK_PAPER_SCISSORS: {
             MIN_BET: 50,
