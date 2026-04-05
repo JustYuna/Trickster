@@ -5,12 +5,20 @@ const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
     CORE: {
+        SETTINGS: {
+            COMMANDS_PER_MINUTE: 10, // limits how many commands the user can send till timeout
+            MAX_MEMORY_USAGE: 1024, // limites how much mb ram the bot is allowed to use
+
+            DEBUG_MEMORY: false,
+            DEVELOPER_MODE: false,
+        },
         MESSAGES: {
             NOT_ENOUGH_CURRENCY: "❌ You do not have enough **{mainCurrency_name}** {mainCurrency_emoji} to perform this action!",
             MIN_CURRENCY_REQUIRED: "⚠️ You need a minimum of **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
             MAX_CURRENCY_ALLOWED: "🚫 You can only put a maximum of **{amount} {mainCurrency_name}** {mainCurrency_emoji}!",
-            ACTION_COOLDOWN: "⏳ You are on cooldown for `{command}鸣. Please wait **{remainingSeconds}** second(s).",
+            ACTION_COOLDOWN: "⏳ You are on cooldown for `{command}`. Please wait **{remainingSeconds}** second(s).",
             ACTION_UNAVAILABLE: "🛠️ This action is currently unavailable, please try again later.",
+            ACTION_RATE_LIMIT: "⚠️ You are currently being rate limited... please wait a moment."
         },
 
         EMOJIS: {
@@ -280,6 +288,27 @@ module.exports = {
             }
         },
 
+        // -------------------
+        // GAMBLING SECTION
+        // -------------------
+
+        RAFFLE: {
+            MIN_BET: 50,
+            MAX_BET: 50_000,
+            MAX_DIFFERENCE: 10_000, // Sets the max diffrence so you cannot bet 1 vs 50_000
+            RAFFLE_TIME: 600, // in seconds
+
+            MESSAGES: {
+                DIFFERENCE_TOO_HIGH: "⚠️ The difference for the bet is too high, you can only bet a diffrence of max 10,000!\n*Cooldown reset to 10sec's*",
+                NO_CODE: "⚠️ You need a code to join a raffle!\n*Cooldown reset to 10sec's*",
+                NO_RAFFLE_FOUND: "⚠️ No active raffle was found with that code, make you that you wrote it correct.\n*Cooldown reset to 10sec's*",
+                NO_AMOUNT: "⚠️ You need to input a amount to enter/create a raffle!\n*Cooldown reset to 10sec's*",
+
+                WINNER: "🎉 {winner} won the raffle!\nReward: **{amount} {mainCurrency_name}’s** {mainCurrency_emoji}",
+                INFO: "**Raffle:**\nThis command allows you to create a raffle to play against your friends!\n- Create a raffle using /raffle <create>\n- Join a raffle by using /raffle <join> <code>\n*Cooldown reset to 10sec's*",
+            },
+        },
+
         ROCK_PAPER_SCISSORS: {
             MIN_BET: 50,
             MAX_BET: 50_000,
@@ -348,16 +377,18 @@ module.exports = {
                 "https://tenor.com/view/chikku-neesan-girl-hit-wall-stfu-anime-girl-smack-gif-17078255",
                 "https://tenor.com/view/hitoribocchi-bocchi-aru-aru-chan-hitoribocchi-aru-gif-14409897",
                 "https://tenor.com/view/yuru-yuri-chinatsu-yoshikawa-anime-anime-girl-bonk-gif-23853785",
+                "https://tenor.com/view/bonk-gif-19410756",
+                "https://tenor.com/view/spongebob-meme-bonk-gif-24279189",
             ],
             RESPONSES: [
                 "🔨 {bonker} [bonked]({gif}) {bonkee} into the next century!",
                 "🌌 {bonker} [bonked]({gif}) {bonkee} so hard they saw stars.",
-                "🏏 A wild {bonker} appeared and [bonked]({gif}) {bonkee}!",
                 "🌕 {bonker} [bonked]({gif}) {bonkee} all the way to the moon.",
                 "💫 {bonker} [bonked]({gif}) {bonkee} into another dimension!",
                 "⚡ {bonker} [bonked]({gif}) {bonkee} at lightning speed!",
                 "🎯 {bonker} [bonked]({gif}) {bonkee} with perfect accuracy!",
-                "🪐 {bonker} [bonked]({gif}) {bonkee} straight into orbit!"
+                "🪐 {bonker} [bonked]({gif}) {bonkee} straight into orbit!",
+                "🏏 A wild {bonker} appeared and [bonked]({gif}) {bonkee}!",
             ]
         },
 
@@ -367,7 +398,10 @@ module.exports = {
                 "https://tenor.com/view/alice-vt-gif-25825873",
                 "https://tenor.com/view/chikako-hugging-otohime-for-the-first-and-she-confused-gif-313471048803276179",
                 "https://tenor.com/view/yukon-child-form-embracing-ulquiorra-gif-15599442819011505520",
-                "https://tenor.com/view/hugtrip-gif-2490966530865073004"
+                "https://tenor.com/view/hugtrip-gif-2490966530865073004",
+                "https://tenor.com/view/%D8%AD%D8%B6%D9%86-%D8%A8%D9%88-gif-873756486592965272",
+                "https://tenor.com/view/1053-dog-hug-friend-happy-gif-7124185793758437906",
+                "https://tenor.com/view/monkey-hug-monkeys-hugging-golden-monkeys-gif-11103289529249683769",
             ]
         },
 
