@@ -3,8 +3,11 @@
 All notable changes to this project will be documented in this file.
 
 ---
+## [2.1] - The Theme Engine Update
+* **/ship:** now uses user IDs instead of usernames → consistent results, no more reroll abuse via username changes
 
-## [1.0.7] - The Theme Engine Update
+
+## [2.0] - The Theme Engine Update
 > **Note:** This update includes a full economy reset to support the new global theme system.
 
 ### 🎭 Major Overhaul
@@ -19,7 +22,7 @@ All notable changes to this project will be documented in this file.
 - **Performance:** Interaction handling is now significantly faster.
 - **Smarter Captcha:** Integrated a new "Heat System" to detect automated botting more accurately while reducing friction for real users.
 
-## [1.0.6]
+## [1.6]
 ### Reworked
 - Improved performance across multiple commands.
 - Reworked CAPTCHA system for improved stability.
@@ -29,7 +32,7 @@ All notable changes to this project will be documented in this file.
 - Global command deferring added for faster interaction handling.
 - Better timeout protection and reduced API errors (10062).
 
-## [1.0.5]
+## [1.5]
 ### ✨ New Features
 - 👻 **/rob** has returned.
 
@@ -45,7 +48,7 @@ All notable changes to this project will be documented in this file.
 - Fixed false "broken" messages in sugar-hunt.
 - General security patches.
 
-## [1.0.4]
+## [1.4]
 ### ✨ New Features
 - 🍪 Added **Cookies** as a second currency.
 - 🎃 Expanded **trick-or-treat** responses.
