@@ -243,60 +243,84 @@ module.exports = {
         },
     },
 
+    PROGRESSION: {
+        REWARDS: {
+            WEIGHT: {
+                CASH_MULTIPLIER: 1,
+                XP_MULTIPLIER: 0.5,
+                AMOUNT_MULTIPLIER: 0.5
+            }
+        },
+        LEVELS: {
+            MAX_LEVEL: 50,
+            XP_TABLE: { // level: xp needed
+                0: 100, 1: 100, 2: 250, 3: 500, 4: 1_000, 5: 2_500, 6: 6_500, 7: 15_000, 8: 40_000, 9: 100_000,10: 225_000,
+                11: 350_000, 12: 500_000, 13: 700_000, 14: 950_000, 15: 1_250_000, 16: 1_600_000, 17: 2_000_000, 18: 2_450_000, 19: 2_950_000, 20: 3_500_000,
+                21: 4_100_000, 22: 4_750_000, 23: 5_450_000, 24: 6_200_000, 25: 7_000_000,
+                26: 7_850_000,27: 8_750_000, 28: 9_700_000, 29: 10_700_000, 30: 11_750_000,
+                31: 12_850_000, 32: 14_000_000, 33: 15_200_000, 34: 16_450_000, 35: 17_750_000,
+                36: 19_100_000, 37: 20_500_000, 38: 21_950_000, 39: 23_450_000, 40: 25_000_000,
+                41: 26_600_000, 42: 28_250_000, 43: 29_950_000, 44: 31_700_000, 45: 33_500_000,
+                46: 35_350_000, 47: 37_250_000, 48: 39_200_000, 49: 41_200_000, 50: 43_250_000
+            },
+            REWARDS: { // level: cash multiplier in %
+                0: 0, 1: 0, 2: 5, 3: 10, 4: 15, 5: 20,
+                6: 25, 7: 30, 8: 35, 9: 40, 10: 45,
+                11: 50, 12: 55, 13: 60, 14: 65, 15: 70,
+                16: 75, 17: 80, 18: 85, 19: 90, 20: 95,
+                21: 100, 22: 110, 23: 120, 24: 130, 25: 140,
+                26: 150, 27: 160, 28: 170, 29: 180, 30: 190,
+                31: 200, 32: 210, 33: 220, 34: 225, 35: 230,
+                36: 235, 37: 240, 38: 245, 39: 247, 40: 248,
+                41: 249, 42: 250, 43: 250, 44: 250, 45: 250,
+                46: 250, 47: 250, 48: 250, 49: 250, 50: 250
+            }
+        }
+    },
+
     ECONOMY: {
 
         // -------------------
         // BASE SECTION
         // -------------------
 
+        WORK: {
+            MESSAGES: {
+                EXPERIENCE_ATTACH: "\n{emoji_UI_Plus} +{xp} XP",
+                LEVEL_UP_ATTACH: "\n{emoji_UI_Plus} Level Up! You are now **Level {level}**"
+            }
+        },
+
         BANK: {
             UPGRADES: {
-                [0]: { NEXT_COST: 15_000, CAPACITY: 7_500 },
-                [1]: { NEXT_COST: 45_000, CAPACITY: 22_500 },
-                [2]: { NEXT_COST: 100_000, CAPACITY: 50_000 },
-                [3]: { NEXT_COST: 250_000, CAPACITY: 125_000 },
-                [4]: { NEXT_COST: 99_000_000_000, CAPACITY: 0 } // Cap max
+                0: { NEXT_COST: 15_000, CAPACITY: 10_000 },
+                1: { NEXT_COST: 45_000, CAPACITY: 30_000 },
+                2: { NEXT_COST: 100_000, CAPACITY: 77_000 },
+                3: { NEXT_COST: 250_000, CAPACITY: 222_000 },
+                4: { NEXT_COST: 99_000_000_000, CAPACITY: 750_000 } // Maxed out
             },
             MESSAGES: {
                 BANK_FULL: "{emoji_UI_Cross} Your bank is full, try upgrading it!",
-                UPGRADE_CANT_AFFORD: "{emoji_UI_Cross} You cannot afford this upgrade!\nYou are missing **{amount} {mainCurrency_name} {mainCurrency_emoji}**\n# *Only {mainCurrency_name} outside the bank can be used to upgrade.*",
+                UPGRADE_CANT_AFFORD: "{emoji_UI_Cross} You cannot afford this upgrade!\nYou are missing **{amount} {mainCurrency_name} {mainCurrency_emoji}**\n### *Only {mainCurrency_name} outside the bank can be used to upgrade.*",
+                UPGRADE_MAXED: "{emoji_UI_Cross} Your bank is already at maximum level!",
                 DEPOSIT: "{emoji_UI_Plus} You deposited {amount} {mainCurrency_emoji} into the bank!\n- Deposited: **{newAmount} {mainCurrency_emoji}**",
-                WITHDRAW: "{emoji_UI_Plus} You withdrawed {amount} {mainCurrency_emoji} into the bank!\n- Deposited: **{newAmount} {mainCurrency_emoji}**",
+                WITHDRAW: "{emoji_UI_Plus} You withdrew {amount} {mainCurrency_emoji} from the bank!\n- Deposited: **{newAmount} {mainCurrency_emoji}**",
+                INVALID_AMOUNT: "{emoji_UI_Cross} Invalid amount specified!",
                 VIEW: {
                     title: "🏦 Bank",
                     fields: [
-                        {
-                            name: "Level",
-                            value: "**{level}**",
-                            inline: true
-                        },
-                        {
-                            name: "Capacity",
-                            value: "**{capacity}**",
-                            inline: true
-                        },
-                        {
-                            name: "Next Upgrade",
-                            value: "{next}",
-                            inline: false
-                        }
+                        { name: "Level", value: "**{level}**", inline: true },
+                        { name: "Capacity", value: "**{capacity}**", inline: true },
+                        { name: "Deposited", value: "**{deposited}**", inline: true },
+                        { name: "Next Upgrade", value: "{next}", inline: false }
                     ]
                 },
-
                 UPGRADE_SUCCESS: {
                     title: "🏦 Upgrade Successful",
                     description: "{emoji_UI_Plus} Your bank has been upgraded!",
                     fields: [
-                        {
-                            name: "New Level",
-                            value: "**{level}**",
-                            inline: true
-                        },
-                        {
-                            name: "Capacity",
-                            value: "**{capacity}**",
-                            inline: true
-                        }
+                        { name: "New Level", value: "**{level}**", inline: true },
+                        { name: "Capacity", value: "**{capacity}**", inline: true }
                     ],
                     footer: "Keep grinding 💰"
                 }
@@ -457,7 +481,10 @@ module.exports = {
         },
 
         SHIP: {
-            MESSAGE: "{emoji} The love compatibility between **{name1}** and **{name2}** is **{percentage}%**!"
+            MESSAGE: "{emoji} The love compatibility between **{name1}** and **{name2}** is **{percentage}%**!",
+            OVERWRITE: {
+                [656588010195910686]: 0,
+            }
         },
         TOWER: {
 
