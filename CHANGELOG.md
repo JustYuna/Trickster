@@ -6,6 +6,12 @@ All notable changes to this project will be documented in this file.
 ## [2.1] - The Theme Engine Update
 * **/ship:** now uses user IDs instead of usernames → consistent results, no more reroll abuse via username changes
 
+### ⚒️ Added
+- **/bank** - Deposit, withdraw, and upgrade your personal bank storage with full capacity tracking.
+
+### 🛠 Tech Yap (Internal)
+- **Number abbreviation** - Large numbers are now abbreviated for cleaner UX.
+
 
 ## [2.0] - The Theme Engine Update
 > **Note:** This update includes a full economy reset to support the new global theme system.
