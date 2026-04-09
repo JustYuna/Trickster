@@ -246,11 +246,16 @@ module.exports = {
     PROGRESSION: {
         REWARDS: {
             WEIGHT: {
-                MULTIPLIER: {
-                    WORTH: 2,
-                    XP: 2,
-                    AMOUNT: 1
-                };
+                BASE_WORTH: 10_000,
+                WORTH_WEIGHT_CUT_ABOVE: { VALUE: 30, CUT: 3 },
+
+                BASE_XP: 12_500,
+                XP__WEIGHT_CUT_ABOVE: { VALUE: 30, CUT: 4 },
+
+                BASE_AMOUNT: 1,
+                MAX_AMOUNT: 25,
+                AMOUNT_MAX_WEIGHT: 50,
+                AMOUNT_VARIANCE: 0.1,
             }
         },
         LEVELS: {
@@ -332,6 +337,22 @@ module.exports = {
         // -------------------
         // CRIME SECTION
         // -------------------
+
+        ROB: {
+            MESSAGES: {
+                FAIL: "{emoji_UI_Cross} You have been caught attempting to rob {target}!\nYou have been fined {mainCurrency_emoji} {fine} {mainCurrency_name}!",
+                SUCCESS: "{emoji_UI_Plus} You successfully robbed {target} earning you {mainCurrency_emoji} {amount} {mainCurrency_name}!",
+                REQUIREMENT: "{emoji_UI_Cross} You need min {mainCurrency_emoji} {amount} {mainCurrency_name} to rob this user.\n*Cooldown reset to 10s*",
+                SHIELD_ACTIVE: "{emoji_UI_Cross} The target has a shield active, you can attack him again in {time}!",
+                IS_BOT: "{emoji_UI_Cross} The target you are trying to rob is a bot... please dont do that.\n*Cooldown reset to 10s*",
+                IS_YOU: "{emoji_UI_Cross} Did you realy just try to rob yourself... why?\n*Cooldown reset to 10s*",
+            },
+
+            REQUIREMENT_RATIO: 10, // Makes it so you need a ratio of what your target has that you want to rob
+            LOSE_RATIO: { MIN: 5, MAX: 15 },// Ratio for stealing fail
+            STEAL_RATIO: { MIN: 10, MAX: 25 }, // Ratio for stealing success
+            SUCCESS_RATIO: { BASE: 0.4, VARIANCE: 0.1 },
+        },
 
 
         HEIST: {
