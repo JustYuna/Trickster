@@ -18,6 +18,10 @@ All notable changes to this project will be documented in this file.
 - **Number abbreviation** - Large numbers are now abbreviated for cleaner UX.
 - **SyncUserData** – ensures missing fields are auto-added to the datastore to prevent lost values.
 - **Level/XP persistence** – safer logic avoids overwriting actual stored values before calculation, preventing broken progression.
+- **/work rework** – fully redesigned reward system:
+  - Weighted resource selection (rarity-based outcomes)
+  - Amount scales with resource weight + slight randomness
+  - Value & XP scale inversely with weight (rarer ≠ always better)
 
 
 ## [2.0] - The Theme Engine Update
