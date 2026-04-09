@@ -4,22 +4,18 @@ All notable changes to this project will be documented in this file.
 
 ---
 ## [2.1] - The Theme Engine Update
-* **/ship:** now uses user IDs instead of usernames → consistent results, no more reroll abuse via username changes
 
 ### ⚒️ Added
 - **/bank** - Deposit, withdraw, and upgrade your personal bank storage with full capacity tracking.
 - **/rob** - Rob other users [buying shields to protect yourself is in work.]
 - **/poke - /patpat** - Added more social commands.
-
-- **Work command enhancements** – now calculates rewards with weighted resources, randomized amounts, and XP multipliers.
-- **Level tracking** – multi-level support with proper XP rollover; level-ups trigger attach messages.
-- **Experience messages** – shows XP gained and level-up notifications appended to action messages.
-- **Global multipliers** – configurable cash, XP, and amount multipliers for easier progression tuning.
+- **Levels** - Working [`/mine`, `/cook`, `/fish`, `/hunt`] now give xp, locking further commands behind possible level walls to reduce data usage.
 
 ### 🛠 Tech Yap (Internal)
+* **/ship** - Now uses user IDs instead of usernames → consistent results, no more reroll abuse via username changes
 - **Number abbreviation** - Large numbers are now abbreviated for cleaner UX.
 - **SyncUserData** – ensures missing fields are auto-added to the datastore to prevent lost values.
-- **Social cleanup** - Socieal commands  [`/poke`, `/hug`, `/patpat`, `/bonk`] now use a single `socialAction` function, reducing clutter in the code
+- **Social cleanup** - Social commands  [`/poke`, `/hug`, `/patpat`, `/bonk`] now use a single `socialAction` function, reducing clutter in the code
 
 
 ## [2.0] - The Theme Engine Update
