@@ -1,3 +1,5 @@
+// config.js
+
 require("dotenv").config();
 const { EmbedBuilder } = require("discord.js");
 
@@ -518,7 +520,58 @@ module.exports = {
                 "https://tenor.com/view/monkey-hug-monkeys-hugging-golden-monkeys-gif-11103289529249683769",
                 "https://tenor.com/view/hugtrip-gif-2490966530865073004",
                 "https://tenor.com/view/chikako-hugging-otohime-for-the-first-and-she-confused-gif-313471048803276179",
+                "https://tenor.com/view/anime-hug-anime-anime-girl-anime-girls-anime-girls-hugging-gif-26094816",
+            ],
+            RESPONSES: [
+                "🤗 {user} gave a warm [hug]({gif}) to {target}",
+                "💖 {user} wrapped {target} in a big hug! [GIF]({gif})",
+                "🌸 {user} hugs {target} gently [here]({gif})",
+                "✨ {user} sends loving hugs to {target} [gif]({gif})",
             ]
+        },
+        
+        PATPAT: {
+            GIFS: [
+                "https://tenor.com/view/pat-good-job-patpat-gif-25554349",
+                "https://tenor.com/view/pat-dinosaurs-plushies-gif-24417567",
+                "https://tenor.com/view/pat-cat-pat-pat-gif-25250101",
+                "https://tenor.com/view/pat-pat-rapido-gif-15216826395550357389",
+                "https://tenor.com/view/pat-pat-gif-17887147253868781702",
+                "https://tenor.com/view/pet-gif-24168859",
+                "https://tenor.com/view/anime-hug-anime-anime-girl-anime-girls-anime-girls-hugging-gif-26094816",
+                "https://tenor.com/view/anime-good-girl-pet-pat-gif-9200932",
+            ],
+            RESPONSES: [
+                "🔨 {bonker} [bonked]({gif}) {bonkee} into the next century!",
+                "🌌 {bonker} [bonked]({gif}) {bonkee} so hard they saw stars.",
+                "🌕 {bonker} [bonked]({gif}) {bonkee} all the way to the moon.",
+                "💫 {bonker} [bonked]({gif}) {bonkee} into another dimension!",
+            ]
+        },
+        
+        POKE: {
+            GIFS: [
+                "https://tenor.com/view/lol-gif-10326322287539089286",
+                "https://tenor.com/view/mochi-poke-poke-cute-cat-cat-cartoon-gif-27137384",
+                "https://tenor.com/view/bird-cute-poke-sweet-gif-16818145",
+                "https://tenor.com/view/poke-the-bear-angry-gif-26844893", 
+                "https://tenor.com/view/tag2-gif-25229282",
+                "https://tenor.com/view/poke-eyes-gif-12619607009147797210",
+                "https://tenor.com/view/cat-head-pat-poke-annoying-boop-gif-6808277743442463226",
+                "https://tenor.com/view/nekone-utawarerumono-poke-anime-gif-26470052",
+                "https://tenor.com/view/zakuro-cat-kitty-knead-kneading-gif-4180242096187015645",
+                "https://tenor.com/view/marin-kitagawa-kitagawa-giggle-love-anime-gif-16415664153773123078",
+                "https://tenor.com/view/vn-visual-novel-visual-novel-anime-gif-9884176409648718473",
+                "https://tenor.com/view/yonomori-kobeni-anime-girl-poke-cheek-kobeni-mikakunin-de-shinkoukei-gif-9593787201996879155",
+                "https://tenor.com/view/my-deer-friend-nokotan-noko-gif-13644573839223951462",
+                "https://tenor.com/view/poke-anime-gif-22595069"
+            ],
+        RESPONSES: [
+            "👉 {user} poked {target}! [GIF]({gif})",
+            "😜 {user} gives a playful poke to {target} [here]({gif})",
+            "🎯 {user} pokes {target} with precision! [gif]({gif})",
+            "🤏 {user} pokes {target} gently [GIF]({gif})"
+        ]
         },
 
         SHIP: {
