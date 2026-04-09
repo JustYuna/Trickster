@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 ### ⚒️ Added
 - **/bank** - Deposit, withdraw, and upgrade your personal bank storage with full capacity tracking.
+- **/rob** - Rob other users [buying shields to protect yourself is in work.]
 
 - **Work command enhancements** – now calculates rewards with weighted resources, randomized amounts, and XP multipliers.
 - **Level tracking** – multi-level support with proper XP rollover; level-ups trigger attach messages.
@@ -17,11 +18,6 @@ All notable changes to this project will be documented in this file.
 ### 🛠 Tech Yap (Internal)
 - **Number abbreviation** - Large numbers are now abbreviated for cleaner UX.
 - **SyncUserData** – ensures missing fields are auto-added to the datastore to prevent lost values.
-- **Level/XP persistence** – safer logic avoids overwriting actual stored values before calculation, preventing broken progression.
-- **/work rework** – fully redesigned reward system:
-  - Weighted resource selection (rarity-based outcomes)
-  - Amount scales with resource weight + slight randomness
-  - Value & XP scale inversely with weight (rarer ≠ always better)
 
 
 ## [2.0] - The Theme Engine Update
