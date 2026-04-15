@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 
 ---
+## [2.2] - QOL
+
+### ⚒️ Added
+- **/work** - Added more reponses
+- **/gift** - Patched and added
+- **/heist** - Fixed
+
+### 🛠 Tech Yap
+- **/work** - Added more responses, Added tags [WORTHLESS, e.g.] to add special events
+- **Number abbreviation** - Fixed numbers like 100K being abbreviated to 0.1M
+
 ## [2.1] - The Theme Engine Update
 
 ### ⚒️ Added
