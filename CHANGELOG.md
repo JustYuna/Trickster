@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - **/work** - Added more reponses
 - **/gift** - Patched and added
 - **/heist** - Fixed
+- **New commands** - `/farm`, `/smith`, `/chop`
 
 ### 🛠 Tech Yap
 - **/work** - Added more responses, Added tags [WORTHLESS, e.g.] to add special events
